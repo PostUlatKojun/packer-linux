@@ -32,5 +32,15 @@
       "type": "vagrant",
       "output": "debian-9.0-amd64-vagrant.box"
     }
+  ],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "scripts": [
+        "scripts/sudoers.sh"
+      ]
+    }
   ]
 }
